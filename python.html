@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python – Portfolio numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">Portfolio numérique</a>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" aria-label="Basculer le mode sombre">Mode sombre</button>
+        <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      </div>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="../digital-skills/cybersecurite.html">Cybersécurité</a></li>
+          <li><a href="../digital-skills/prompt-engineering.html">Prompt engineering</a></li>
+          <li><a href="../digital-skills/creation-contenu.html">Création de contenu</a></li>
+          <li><a href="python.html" aria-current="page">Python</a></li>
+          <li><a href="langage-c.html">Langage C</a></li>
+          <li><a href="algorithmique.html">Algorithmique</a></li>
+          <li><a href="../systemes/systemes-exploitation.html">Systèmes</a></li>
+          <li><a href="../systemes/architecture-electronique.html">Architecture</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <h1>Développement – Python</h1>
+    <p>Trois mini-projets. Pour chacun : problème, code, explication, capture d'exécution, difficultés rencontrées.</p>
+    <p><em>Les codes ci-dessous sont des exemples de départ : écrivez d'abord votre propre solution, puis comparez-la avec celle-ci et adaptez ce qui est affiché.</em></p>
+
+    <article class="project">
+      <h3>Projet 1 – Calculatrice</h3>
+      <p><strong>Problème :</strong> demander deux nombres et une opération (+, -, *, /) puis afficher le résultat, en gérant la division par zéro et les saisies invalides.</p>
+      <pre><code>def calculer(a, b, op):
+    if op == "+":
+        return a + b
+    if op == "-":
+        return a - b
+    if op == "*":
+        return a * b
+    if op == "/":
+        if b == 0:
+            return None
+        return a / b
+    return None
+
+try:
+    a = float(input("Premier nombre : "))
+    b = float(input("Deuxième nombre : "))
+    op = input("Opération (+, -, *, /) : ")
+    resultat = calculer(a, b, op)
+    if resultat is None:
+        print("Opération impossible (division par zéro ou symbole inconnu).")
+    else:
+        print("Résultat :", resultat)
+except ValueError:
+    print("Veuillez entrer un nombre valide.")</code></pre>
+      <p><strong>Explication :</strong> la fonction <code>calculer</code> choisit l'opération avec des conditions. Le bloc <code>try / except</code> intercepte l'erreur levée par <code>float()</code> si l'utilisateur tape du texte.</p>
+      <div class="placeholder"><strong>Capture d'écran :</strong> [ajoutez <code>../medias/python-calculatrice.png</code> avec un texte alternatif]</div>
+      <p><strong>Difficultés et solutions :</strong> [à compléter]</p>
+    </article>
+
+    <article class="project">
+      <h3>Projet 2 – Jeu de devinettes</h3>
+      <p><strong>Problème :</strong> l'ordinateur choisit un nombre entre 1 et 100 ; le joueur propose des valeurs et reçoit « trop grand » ou « trop petit » jusqu'à trouver.</p>
+      <pre><code>import random
+
+secret = random.randint(1, 100)
+essais = 0
+
+print("J'ai choisi un nombre entre 1 et 100.")
+while True:
+    saisie = input("Votre proposition : ")
+    if not saisie.isdigit():
+        print("Entrez un nombre entier.")
+        continue
+    proposition = int(saisie)
+    essais += 1
+    if proposition &lt; secret:
+        print("Trop petit.")
+    elif proposition &gt; secret:
+        print("Trop grand.")
+    else:
+        print("Bravo ! Trouvé en", essais, "essais.")
+        break</code></pre>
+      <p><strong>Explication :</strong> <code>random.randint</code> tire le nombre secret. La boucle <code>while True</code> continue jusqu'au <code>break</code>. Le compteur <code>essais</code> mesure la performance.</p>
+      <div class="placeholder"><strong>Capture d'écran :</strong> [ajoutez <code>../medias/python-devinette.png</code>]</div>
+      <p><strong>Difficultés et solutions :</strong> [à compléter]</p>
+    </article>
+
+    <article class="project">
+      <h3>Projet 3 – Gestionnaire de notes</h3>
+      <p><strong>Problème :</strong> saisir des notes, puis afficher la moyenne, la meilleure et la plus faible.</p>
+      <pre><code>notes = []
+
+while True:
+    saisie = input("Note sur 20 (ou 'q' pour terminer) : ")
+    if saisie.lower() == "q":
+        break
+    try:
+        note = float(saisie)
+    except ValueError:
+        print("Valeur invalide.")
+        continue
+    if 0 &lt;= note &lt;= 20:
+        notes.append(note)
+    else:
+        print("La note doit être entre 0 et 20.")
+
+if notes:
+    moyenne = sum(notes) / len(notes)
+    print("Nombre de notes :", len(notes))
+    print("Moyenne :", round(moyenne, 2))
+    print("Meilleure :", max(notes))
+    print("Plus faible :", min(notes))
+else:
+    print("Aucune note saisie.")</code></pre>
+      <p><strong>Explication :</strong> les notes sont stockées dans une liste. On valide chaque entrée avant de l'ajouter, puis on utilise <code>sum</code>, <code>max</code> et <code>min</code>.</p>
+      <div class="placeholder"><strong>Capture d'écran :</strong> [ajoutez <code>../medias/python-notes.png</code>]</div>
+      <p><strong>Difficultés et solutions :</strong> [à compléter]</p>
+    </article>
+
+    <aside class="transparence" aria-labelledby="ia-python">
+      <h2 id="ia-python">Transparence IA</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> [VS Code, Claude / ChatGPT]</li>
+        <li><strong>Rôle de l'IA :</strong> [ex. expliquer un message d'erreur, comparer ma solution]</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> [écriture du code, tests, corrections]</li>
+        <li><strong>Sources vérifiées :</strong> [documentation Python officielle : <a href="https://docs.python.org/fr/3/">docs.python.org</a>]</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 [Prénom Nom] – Portfolio numérique</p></footer>
+</body>
+</html>

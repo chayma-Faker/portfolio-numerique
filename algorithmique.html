@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Algorithmique – Portfolio numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">Portfolio numérique</a>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" aria-label="Basculer le mode sombre">Mode sombre</button>
+        <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      </div>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="../digital-skills/cybersecurite.html">Cybersécurité</a></li>
+          <li><a href="../digital-skills/prompt-engineering.html">Prompt engineering</a></li>
+          <li><a href="../digital-skills/creation-contenu.html">Création de contenu</a></li>
+          <li><a href="python.html">Python</a></li>
+          <li><a href="langage-c.html">Langage C</a></li>
+          <li><a href="algorithmique.html" aria-current="page">Algorithmique</a></li>
+          <li><a href="../systemes/systemes-exploitation.html">Systèmes</a></li>
+          <li><a href="../systemes/architecture-electronique.html">Architecture</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <h1>Développement – Algorithmique</h1>
+    <p>Trois algorithmes : idée générale, pseudo-code, exemple pas à pas et traduction en Python.</p>
+
+    <article class="project">
+      <h3>Algorithme 1 – Recherche du maximum</h3>
+      <p><strong>Idée générale :</strong> on suppose que le premier élément est le maximum, puis on parcourt le tableau et on retient tout élément plus grand.</p>
+      <pre><code>FONCTION maximum(T, n)
+    max ← T[0]
+    POUR i DE 1 À n-1 FAIRE
+        SI T[i] &gt; max ALORS
+            max ← T[i]
+        FIN SI
+    FIN POUR
+    RETOURNER max</code></pre>
+      <p><strong>Exemple pas à pas</strong> avec T = [4, 9, 2, 7] : max = 4 → 9 &gt; 4 donc max = 9 → 2 &lt; 9 → 7 &lt; 9 → résultat 9.</p>
+      <pre><code>def maximum(t):
+    m = t[0]
+    for x in t[1:]:
+        if x &gt; m:
+            m = x
+    return m
+
+print(maximum([4, 9, 2, 7]))  # 9</code></pre>
+      <div class="placeholder"><strong>Organigramme :</strong> [ajoutez votre schéma Canva dans <code>../medias/organigramme-max.png</code>]</div>
+    </article>
+
+    <article class="project">
+      <h3>Algorithme 2 – Tri à bulles</h3>
+      <p><strong>Idée générale :</strong> on compare les éléments voisins et on les échange s'ils sont mal ordonnés. À chaque passage, le plus grand élément « remonte » en fin de tableau.</p>
+      <pre><code>PROCÉDURE triBulles(T, n)
+    POUR i DE 0 À n-2 FAIRE
+        POUR j DE 0 À n-i-2 FAIRE
+            SI T[j] &gt; T[j+1] ALORS
+                échanger T[j] et T[j+1]
+            FIN SI
+        FIN POUR
+    FIN POUR</code></pre>
+      <p><strong>Exemple pas à pas</strong> avec [5, 2, 4] :</p>
+      <ul>
+        <li>Passage 1 : (5,2) échange → [2, 5, 4] ; (5,4) échange → [2, 4, 5]</li>
+        <li>Passage 2 : (2,4) correct ; le tableau est trié : [2, 4, 5]</li>
+      </ul>
+      <pre><code>def tri_bulles(t):
+    n = len(t)
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if t[j] &gt; t[j + 1]:
+                t[j], t[j + 1] = t[j + 1], t[j]
+    return t
+
+print(tri_bulles([5, 2, 4]))  # [2, 4, 5]</code></pre>
+      <p><strong>Complexité :</strong> de l'ordre de n² comparaisons dans le pire cas.</p>
+    </article>
+
+    <article class="project">
+      <h3>Algorithme 3 – Recherche dichotomique</h3>
+      <p><strong>Idée générale :</strong> dans un tableau <em>trié</em>, on compare la valeur cherchée à l'élément du milieu et on élimine la moitié du tableau à chaque étape.</p>
+      <pre><code>FONCTION dichotomie(T, n, x)
+    gauche ← 0 ; droite ← n-1
+    TANT QUE gauche ≤ droite FAIRE
+        milieu ← (gauche + droite) DIV 2
+        SI T[milieu] = x ALORS RETOURNER milieu
+        SINON SI T[milieu] &lt; x ALORS gauche ← milieu + 1
+        SINON droite ← milieu - 1
+    FIN TANT QUE
+    RETOURNER -1</code></pre>
+      <p><strong>Exemple pas à pas</strong> : T = [1, 3, 5, 7, 9, 11], x = 7 → milieu = 2 (valeur 5 &lt; 7) donc gauche = 3 → milieu = 4 (valeur 9 &gt; 7) donc droite = 3 → milieu = 3 (valeur 7) : trouvé à l'indice 3.</p>
+      <pre><code>def dichotomie(t, x):
+    gauche, droite = 0, len(t) - 1
+    while gauche &lt;= droite:
+        milieu = (gauche + droite) // 2
+        if t[milieu] == x:
+            return milieu
+        if t[milieu] &lt; x:
+            gauche = milieu + 1
+        else:
+            droite = milieu - 1
+    return -1
+
+print(dichotomie([1, 3, 5, 7, 9, 11], 7))  # 3</code></pre>
+    </article>
+
+    <h2>Animation : le tri à bulles en direct</h2>
+    <p>Barres jaunes : éléments comparés. Barres vertes : éléments à leur place finale.</p>
+    <div id="bars" role="img" aria-label="Visualisation animée du tri à bulles"></div>
+    <button id="sort-new" type="button">Nouveau tableau</button>
+    <button id="sort-run" type="button" class="btn-primary">Lancer le tri</button>
+
+    <aside class="transparence" aria-labelledby="ia-algo">
+      <h2 id="ia-algo">Transparence IA</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> [Claude, Canva…]</li>
+        <li><strong>Rôle de l'IA :</strong> [ex. expliquer un algorithme que je n'avais pas compris]</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> [pseudo-code, exemples, traduction, organigrammes]</li>
+        <li><strong>Sources vérifiées :</strong> [liens]</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 [Prénom Nom] – Portfolio numérique</p></footer>
+</body>
+</html>

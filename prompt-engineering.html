@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt engineering – Portfolio numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">Portfolio numérique</a>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" aria-label="Basculer le mode sombre">Mode sombre</button>
+        <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      </div>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="cybersecurite.html">Cybersécurité</a></li>
+          <li><a href="prompt-engineering.html" aria-current="page">Prompt engineering</a></li>
+          <li><a href="creation-contenu.html">Création de contenu</a></li>
+          <li><a href="../developpement/python.html">Python</a></li>
+          <li><a href="../developpement/langage-c.html">Langage C</a></li>
+          <li><a href="../developpement/algorithmique.html">Algorithmique</a></li>
+          <li><a href="../systemes/systemes-exploitation.html">Systèmes</a></li>
+          <li><a href="../systemes/architecture-electronique.html">Architecture</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <h1>Digital Skills – Prompt engineering</h1>
+    <p>Objectif : apprendre à formuler des demandes précises pour obtenir de meilleurs résultats d'une IA.</p>
+
+    <h2>1. Les éléments d'un bon prompt</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Élément</th><th>Question à se poser</th><th>Exemple</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Rôle</strong></td><td>Qui doit répondre ?</td><td>« Tu es un professeur d'informatique pour débutants. »</td></tr>
+          <tr><td><strong>Contexte</strong></td><td>Quelle est la situation ?</td><td>« Je suis étudiant en 1ère année et je prépare un exposé. »</td></tr>
+          <tr><td><strong>Tâche</strong></td><td>Que faut-il faire exactement ?</td><td>« Explique la différence entre RAM et disque dur. »</td></tr>
+          <tr><td><strong>Format de sortie</strong></td><td>Sous quelle forme ?</td><td>« Réponds avec un tableau de 3 lignes. »</td></tr>
+          <tr><td><strong>Contraintes</strong></td><td>Quelles limites ?</td><td>« Maximum 120 mots, sans jargon. »</td></tr>
+          <tr><td><strong>Exemples</strong></td><td>À quoi ressemble une bonne réponse ?</td><td>« Voici un exemple du style attendu : … »</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>2. Techniques utiles</h2>
+    <ul>
+      <li><strong>Raisonnement étape par étape</strong> : demander de détailler les étapes avant la réponse finale.</li>
+      <li><strong>Fournir des exemples</strong> (few-shot) pour fixer le style et le format.</li>
+      <li><strong>Itérer et affiner</strong> : corriger le prompt en fonction du résultat obtenu.</li>
+      <li><strong>Demander une vérification</strong> : « Relis ta réponse et signale les points incertains. »</li>
+    </ul>
+
+    <h2>3. Cas pratiques</h2>
+    <p><em>Les cas ci-dessous sont des modèles de structure. Remplacez les résultats par vos propres tests (résumé ou capture d'écran) et gardez vos prompts réels.</em></p>
+
+    <article class="case">
+      <h3>Cas 1 – Expliquer un concept</h3>
+      <div class="bad">
+        <p><strong>Prompt initial (faible)</strong></p>
+        <p><code>Explique les réseaux.</code></p>
+        <p><strong>Résultat obtenu :</strong> [votre résumé ou capture – ex. réponse trop longue et trop générale]</p>
+      </div>
+      <div class="good">
+        <p><strong>Prompt amélioré</strong></p>
+        <pre><code>Tu es un professeur d'informatique pour débutants.
+Je suis étudiant en 1ère année.
+Explique la différence entre un switch et un routeur.
+Format : un tableau de 3 critères puis une analogie en 2 phrases.
+Contraintes : 150 mots maximum, sans jargon inutile.</code></pre>
+        <p><strong>Résultat obtenu :</strong> [votre résumé ou capture – ex. réponse courte, structurée, adaptée]</p>
+      </div>
+      <p><strong>Analyse :</strong> [ce qui a changé : rôle, contexte, format et contrainte de longueur ; pourquoi la réponse est plus utile]</p>
+    </article>
+
+    <article class="case">
+      <h3>Cas 2 – Comprendre une erreur de code</h3>
+      <div class="bad">
+        <p><strong>Prompt initial (faible)</strong></p>
+        <p><code>Mon code Python ne marche pas, corrige.</code></p>
+        <p><strong>Résultat obtenu :</strong> [votre résumé ou capture]</p>
+      </div>
+      <div class="good">
+        <p><strong>Prompt amélioré</strong></p>
+        <pre><code>Je débute en Python. Voici mon code et le message d'erreur exact :
+[code] / [erreur]
+Ne me donne pas la solution complète.
+1) Explique la cause de l'erreur en termes simples.
+2) Donne un indice pour que je corrige moi-même.
+3) Vérifie ensuite ma correction si je te la montre.</code></pre>
+        <p><strong>Résultat obtenu :</strong> [votre résumé ou capture]</p>
+      </div>
+      <p><strong>Analyse :</strong> [ex. contexte fourni, demande d'indice plutôt que de réponse toute faite, respect de la règle « écrire d'abord ma propre solution »]</p>
+    </article>
+
+    <article class="case">
+      <h3>Cas 3 – Préparer une révision</h3>
+      <div class="bad">
+        <p><strong>Prompt initial (faible)</strong></p>
+        <p><code>Fais-moi un résumé du cours.</code></p>
+        <p><strong>Résultat obtenu :</strong> [votre résumé ou capture]</p>
+      </div>
+      <div class="good">
+        <p><strong>Prompt amélioré</strong></p>
+        <pre><code>Tu es un tuteur qui m'aide à réviser mon examen d'algorithmique.
+À partir du texte ci-dessous, fais :
+1) un résumé en 5 points clés,
+2) 5 questions de révision avec réponses,
+3) les 2 notions les plus faciles à confondre.
+Texte : [coller le cours]
+Si une information n'est pas dans le texte, dis-le.</code></pre>
+        <p><strong>Résultat obtenu :</strong> [votre résumé ou capture]</p>
+      </div>
+      <p><strong>Analyse :</strong> [ex. structure demandée, limitation au texte fourni pour éviter les inventions]</p>
+    </article>
+
+    <h2>4. Comparaison entre outils</h2>
+    <p>Testez le même prompt dans plusieurs outils et notez vos observations.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Outil</th><th>Qualité de la réponse</th><th>Sources citées ?</th><th>Remarques</th></tr></thead>
+        <tbody>
+          <tr><td>Claude</td><td>[à compléter]</td><td>[oui / non]</td><td>[…]</td></tr>
+          <tr><td>ChatGPT</td><td>[à compléter]</td><td>[oui / non]</td><td>[…]</td></tr>
+          <tr><td>Grok</td><td>[à compléter]</td><td>[oui / non]</td><td>[…]</td></tr>
+          <tr><td>Perplexity</td><td>[à compléter]</td><td>[oui / non]</td><td>[…]</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>5. Bibliothèque de prompts réutilisables</h2>
+    <h3>1. Expliquer simplement</h3>
+    <pre><code>Explique-moi [notion] comme si j'avais 15 ans. Donne une analogie du quotidien et un exemple concret. 120 mots maximum.</code></pre>
+    <h3>2. Fiche de révision</h3>
+    <pre><code>À partir de ce cours : [texte], crée une fiche de révision : définitions, formules ou règles clés, 3 pièges classiques. Format : liste courte.</code></pre>
+    <h3>3. Quiz d'entraînement</h3>
+    <pre><code>Pose-moi 5 questions de difficulté croissante sur [sujet], une par une. Attends ma réponse avant de corriger et explique mes erreurs.</code></pre>
+    <h3>4. Comprendre une erreur de code</h3>
+    <pre><code>Voici mon code [code] et l'erreur [erreur]. Explique la cause et donne-moi un indice, sans la solution complète.</code></pre>
+    <h3>5. Vérifier une information</h3>
+    <pre><code>Relis ta réponse précédente. Liste ce qui est certain, ce qui est incertain et ce que je dois vérifier dans une source officielle.</code></pre>
+
+    <aside class="transparence" aria-labelledby="ia-prompt">
+      <h2 id="ia-prompt">Transparence IA</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> [ex. Claude, ChatGPT, Grok, Perplexity]</li>
+        <li><strong>Rôle de l'IA :</strong> [ex. produire les réponses comparées aux prompts testés]</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> [rédaction des prompts, tests, analyse, comparaison]</li>
+        <li><strong>Sources vérifiées :</strong> [liens]</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 [Prénom Nom] – Portfolio numérique</p></footer>
+</body>
+</html>

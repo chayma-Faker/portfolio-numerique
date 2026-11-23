@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Se protéger sur Internet – Portfolio numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">Portfolio numérique</a>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" aria-label="Basculer le mode sombre">Mode sombre</button>
+        <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      </div>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="cybersecurite.html" aria-current="page">Cybersécurité</a></li>
+          <li><a href="prompt-engineering.html">Prompt engineering</a></li>
+          <li><a href="creation-contenu.html">Création de contenu</a></li>
+          <li><a href="../developpement/python.html">Python</a></li>
+          <li><a href="../developpement/langage-c.html">Langage C</a></li>
+          <li><a href="../developpement/algorithmique.html">Algorithmique</a></li>
+          <li><a href="../systemes/systemes-exploitation.html">Systèmes</a></li>
+          <li><a href="../systemes/architecture-electronique.html">Architecture</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <h1>Digital Skills – Se protéger sur Internet</h1>
+    <p>Objectif : montrer que je comprends les menaces numériques et que je sais les éviter.</p>
+
+    <h2>1. Les principaux logiciels malveillants</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>Définition</th><th>Fonctionnement</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Virus</strong></td><td>Programme qui s'attache à un fichier légitime.</td><td>Il se propage quand l'utilisateur ouvre le fichier infecté et peut endommager ou supprimer des données.</td></tr>
+          <tr><td><strong>Ver (worm)</strong></td><td>Programme autonome qui se copie lui-même.</td><td>Il se propage par le réseau ou les e-mails sans action de l'utilisateur et peut saturer les systèmes.</td></tr>
+          <tr><td><strong>Cheval de Troie</strong></td><td>Logiciel qui se fait passer pour un programme utile.</td><td>Une fois installé, il ouvre une porte dérobée ou installe d'autres malwares.</td></tr>
+          <tr><td><strong>Ransomware</strong></td><td>Rançongiciel.</td><td>Il chiffre les fichiers de la victime et réclame une rançon pour les déchiffrer.</td></tr>
+          <tr><td><strong>Spyware</strong></td><td>Logiciel espion.</td><td>Il collecte discrètement des informations (frappes clavier, mots de passe, habitudes) et les envoie à un tiers.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>2. Les risques du quotidien</h2>
+    <ul>
+      <li><strong>Hameçonnage (phishing)</strong> : faux e-mails, SMS ou sites imitant une banque, un service public ou un réseau social pour voler des identifiants.</li>
+      <li><strong>Arnaques</strong> : faux gains, faux supports techniques, fausses offres d'emploi ou de location.</li>
+      <li><strong>Vol de comptes</strong> : mots de passe faibles ou réutilisés, récupérés lors d'une fuite ou devinés.</li>
+      <li><strong>Fuite de données</strong> : un service piraté expose des informations personnelles (e-mails, mots de passe, adresses).</li>
+    </ul>
+
+    <h2>3. Les bonnes pratiques</h2>
+    <ul>
+      <li>Utiliser des mots de passe longs et uniques, rangés dans un <strong>gestionnaire de mots de passe</strong>.</li>
+      <li>Activer l'<strong>authentification à deux facteurs</strong> (2FA) partout où c'est possible.</li>
+      <li>Faire les <strong>mises à jour</strong> du système et des applications.</li>
+      <li>Garder un <strong>antivirus</strong> actif et faire des sauvegardes régulières.</li>
+      <li>Rester vigilant face aux liens et pièces jointes inattendus.</li>
+      <li>Éviter les opérations sensibles sur un <strong>Wi-Fi public</strong> (ou utiliser un VPN).</li>
+    </ul>
+
+    <h2>4. Infographie / présentation</h2>
+    <div class="placeholder">
+      <p><strong>À compléter :</strong> insérez ici votre infographie (Canva) ou votre présentation (Gamma / PowerPoint).</p>
+      <p>Exemple : exportez l'image dans <code>medias/infographie-cyber.png</code> puis remplacez ce bloc par :</p>
+      <pre><code>&lt;img src="../medias/infographie-cyber.png"
+     alt="Infographie : les 5 réflexes de cybersécurité"&gt;</code></pre>
+    </div>
+
+    <h2>5. Suis-je bien protégé ?</h2>
+    <h3>Checklist</h3>
+    <div class="checklist" id="checklist">
+      <label><input type="checkbox"> J'utilise un mot de passe différent pour chaque compte important.</label>
+      <label><input type="checkbox"> J'utilise un gestionnaire de mots de passe.</label>
+      <label><input type="checkbox"> J'ai activé la double authentification sur mes comptes principaux.</label>
+      <label><input type="checkbox"> Mon système et mes applications sont à jour.</label>
+      <label><input type="checkbox"> J'ai un antivirus actif.</label>
+      <label><input type="checkbox"> Je vérifie les liens et expéditeurs avant de cliquer.</label>
+      <label><input type="checkbox"> Je fais des sauvegardes régulières de mes fichiers importants.</label>
+      <label><input type="checkbox"> J'évite les opérations sensibles sur un Wi-Fi public.</label>
+    </div>
+    <div class="progress" id="check-progress" role="progressbar" aria-label="Niveau de protection"><div></div></div>
+    <p id="check-text" aria-live="polite"></p>
+
+    <h3>Quiz</h3>
+    <div class="quiz">
+      <form id="quiz-form"></form>
+      <p id="quiz-result" aria-live="polite"></p>
+    </div>
+
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://www.cybermalveillance.gouv.fr/">Cybermalveillance.gouv.fr</a> – assistance et prévention (France)</li>
+      <li><a href="https://cyber.gouv.fr/">ANSSI</a> – Agence nationale de la sécurité des systèmes d'information</li>
+    </ul>
+    <p><em>À faire : ouvrez ces liens, lisez-les et ajoutez les sources nationales de votre pays si besoin.</em></p>
+
+    <aside class="transparence" aria-labelledby="ia-cyber">
+      <h2 id="ia-cyber">Transparence IA</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> [ex. Claude, Perplexity, Canva]</li>
+        <li><strong>Rôle de l'IA :</strong> [ex. proposer un plan, reformuler des définitions, suggérer des questions de quiz]</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> [ex. vérification des définitions, choix des questions, infographie, tests]</li>
+        <li><strong>Sources vérifiées :</strong> [liens consultés]</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 [Prénom Nom] – Portfolio numérique</p></footer>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Langage C – Portfolio numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">Portfolio numérique</a>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" aria-label="Basculer le mode sombre">Mode sombre</button>
+        <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      </div>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="../digital-skills/cybersecurite.html">Cybersécurité</a></li>
+          <li><a href="../digital-skills/prompt-engineering.html">Prompt engineering</a></li>
+          <li><a href="../digital-skills/creation-contenu.html">Création de contenu</a></li>
+          <li><a href="python.html">Python</a></li>
+          <li><a href="langage-c.html" aria-current="page">Langage C</a></li>
+          <li><a href="algorithmique.html">Algorithmique</a></li>
+          <li><a href="../systemes/systemes-exploitation.html">Systèmes</a></li>
+          <li><a href="../systemes/architecture-electronique.html">Architecture</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <h1>Développement – Langage C</h1>
+    <p>Trois programmes illustrant les notions vues, compilés avec GCC : <code>gcc programme.c -o programme -Wall</code>.</p>
+    <p><em>Exemples de départ : adaptez-les aux notions vues en cours et écrivez d'abord votre propre version.</em></p>
+
+    <article class="project">
+      <h3>Programme 1 – Table de multiplication (variables, boucle)</h3>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n;
+    printf("Table de quel nombre ? ");
+    if (scanf("%d", &amp;n) != 1) {
+        printf("Entrée invalide.\n");
+        return 1;
+    }
+    for (int i = 1; i &lt;= 10; i++) {
+        printf("%d x %d = %d\n", n, i, n * i);
+    }
+    return 0;
+}</code></pre>
+      <p><strong>Explication :</strong> <code>scanf</code> lit un entier ; on vérifie son code retour. La boucle <code>for</code> affiche les 10 premiers multiples.</p>
+      <div class="placeholder"><strong>Capture d'écran :</strong> [ajoutez <code>../medias/c-table.png</code>]</div>
+    </article>
+
+    <article class="project">
+      <h3>Programme 2 – Maximum d'un tableau (tableaux, fonctions, conditions)</h3>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int maximum(int tab[], int taille) {
+    int max = tab[0];
+    for (int i = 1; i &lt; taille; i++) {
+        if (tab[i] &gt; max) {
+            max = tab[i];
+        }
+    }
+    return max;
+}
+
+int main(void) {
+    int valeurs[] = {12, 7, 25, 3, 18};
+    int taille = sizeof(valeurs) / sizeof(valeurs[0]);
+    printf("Maximum : %d\n", maximum(valeurs, taille));
+    return 0;
+}</code></pre>
+      <p><strong>Explication :</strong> en C, un tableau passé à une fonction ne conserve pas sa taille : on la transmet à part. <code>sizeof</code> permet de la calculer dans <code>main</code>.</p>
+      <div class="placeholder"><strong>Capture d'écran :</strong> [ajoutez <code>../medias/c-maximum.png</code>]</div>
+    </article>
+
+    <article class="project">
+      <h3>Programme 3 – Échange de deux valeurs (pointeurs)</h3>
+      <pre><code>#include &lt;stdio.h&gt;
+
+void echanger(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main(void) {
+    int x = 5, y = 9;
+    printf("Avant : x=%d, y=%d\n", x, y);
+    echanger(&amp;x, &amp;y);
+    printf("Après : x=%d, y=%d\n", x, y);
+    return 0;
+}</code></pre>
+      <p><strong>Explication :</strong> on passe les <strong>adresses</strong> de <code>x</code> et <code>y</code> (<code>&amp;x</code>). La fonction modifie les valeurs pointées avec <code>*a</code> et <code>*b</code>, ce qu'un passage par valeur ne permettrait pas.</p>
+      <div class="placeholder"><strong>Capture d'écran :</strong> [ajoutez <code>../medias/c-pointeurs.png</code>]</div>
+    </article>
+
+    <h2>Comparatif Python / C</h2>
+    <p><em>Reformulez ce tableau avec vos propres mots.</em></p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Critère</th><th>Python</th><th>C</th></tr></thead>
+        <tbody>
+          <tr><td>Syntaxe</td><td>Courte, indentation obligatoire</td><td>Plus verbeuse, accolades et points-virgules</td></tr>
+          <tr><td>Typage</td><td>Dynamique : le type est déterminé à l'exécution</td><td>Statique : le type est déclaré et vérifié à la compilation</td></tr>
+          <tr><td>Mémoire</td><td>Gérée automatiquement (ramasse-miettes)</td><td>Gérée par le programmeur (pointeurs, <code>malloc</code>/<code>free</code>)</td></tr>
+          <tr><td>Exécution</td><td>Interprété, plus lent</td><td>Compilé en code machine, très rapide</td></tr>
+          <tr><td>Usages</td><td>Scripts, data, IA, prototypage</td><td>Systèmes, embarqué, performances</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <aside class="transparence" aria-labelledby="ia-c">
+      <h2 id="ia-c">Transparence IA</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> [VS Code, GCC, Claude / ChatGPT]</li>
+        <li><strong>Rôle de l'IA :</strong> [ex. comprendre les messages d'erreur du compilateur]</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> [code, tests, comparatif rédigé]</li>
+        <li><strong>Sources vérifiées :</strong> [liens]</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 [Prénom Nom] – Portfolio numérique</p></footer>
+</body>
+</html>

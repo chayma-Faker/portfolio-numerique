@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Architecture et électronique – Portfolio numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">Portfolio numérique</a>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" aria-label="Basculer le mode sombre">Mode sombre</button>
+        <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      </div>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="../digital-skills/cybersecurite.html">Cybersécurité</a></li>
+          <li><a href="../digital-skills/prompt-engineering.html">Prompt engineering</a></li>
+          <li><a href="../digital-skills/creation-contenu.html">Création de contenu</a></li>
+          <li><a href="../developpement/python.html">Python</a></li>
+          <li><a href="../developpement/langage-c.html">Langage C</a></li>
+          <li><a href="../developpement/algorithmique.html">Algorithmique</a></li>
+          <li><a href="systemes-exploitation.html">Systèmes</a></li>
+          <li><a href="architecture-electronique.html" aria-current="page">Architecture</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <h1>Architecture des ordinateurs et électronique</h1>
+
+    <h2>1. Architecture d'un ordinateur</h2>
+    <div class="diagram" role="img" aria-label="Schéma de l'architecture d'un ordinateur : processeur, mémoire, entrées/sorties reliés par des bus">
+      <div><b>Processeur (CPU)</b>Unité de contrôle, UAL (calculs), registres. Exécute les instructions.</div>
+      <div><b>Mémoire</b>RAM (volatile, rapide) et stockage (disque, SSD) pour les données durables.</div>
+      <div><b>Entrées / Sorties</b>Clavier, souris, écran, réseau : échange avec le monde extérieur.</div>
+      <div><b>Bus</b>Bus de données, d'adresses et de contrôle : les « routes » entre les composants.</div>
+    </div>
+    <p>Principe : le processeur répète un cycle <strong>chercher – décoder – exécuter</strong> pour chaque instruction stockée en mémoire.</p>
+
+    <h2>2. Systèmes de numération</h2>
+    <p>Un ordinateur travaille en <strong>binaire</strong> (base 2, chiffres 0 et 1). L'<strong>hexadécimal</strong> (base 16, chiffres 0-9 et A-F) est une écriture compacte : 1 chiffre hexadécimal = 4 bits.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Décimal</th><th>Binaire</th><th>Hexadécimal</th></tr></thead>
+        <tbody>
+          <tr><td>5</td><td>101</td><td>5</td></tr>
+          <tr><td>10</td><td>1010</td><td>A</td></tr>
+          <tr><td>15</td><td>1111</td><td>F</td></tr>
+          <tr><td>42</td><td>101010</td><td>2A</td></tr>
+          <tr><td>255</td><td>11111111</td><td>FF</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Exemple de conversion (42 en binaire) :</strong> 42 = 32 + 8 + 2 = 2⁵ + 2³ + 2¹ → 101010.</p>
+
+    <h3>Convertisseur</h3>
+    <div class="converter">
+      <label for="conv-dec">Nombre décimal (0 à 65535) :</label>
+      <input id="conv-dec" type="number" min="0" max="65535" value="42">
+      <button id="conv-btn" type="button" class="btn-primary">Convertir</button>
+    </div>
+    <p id="conv-out" aria-live="polite"></p>
+
+    <h2>3. Électronique numérique : portes logiques</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>Tables de vérité des portes de base (A, B en entrée)</caption>
+        <thead><tr><th>A</th><th>B</th><th>ET (AND)</th><th>OU (OR)</th><th>OU exclusif (XOR)</th><th>NON-ET (NAND)</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+          <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+          <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+          <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>La porte <strong>NON (NOT)</strong> inverse un seul bit : 0 devient 1 et 1 devient 0.</p>
+    <p><strong>Exemple d'application :</strong> un demi-additionneur additionne deux bits : la somme est <code>A XOR B</code> et la retenue est <code>A ET B</code>.</p>
+    <div class="placeholder"><strong>Schéma :</strong> [ajoutez une capture de votre circuit dans un simulateur en ligne gratuit, ex. <code>../medias/demi-additionneur.png</code>]</div>
+    <div class="placeholder"><strong>Optionnel :</strong> courte vidéo ou présentation avec voix.</div>
+
+    <aside class="transparence" aria-labelledby="ia-archi">
+      <h2 id="ia-archi">Transparence IA</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> [Canva, NotebookLM, simulateur de circuits…]</li>
+        <li><strong>Rôle de l'IA :</strong> [ex. résumé du cours pour réviser]</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> [schémas, conversions, simulation du circuit]</li>
+        <li><strong>Sources vérifiées :</strong> [liens]</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 [Prénom Nom] – Portfolio numérique</p></footer>
+</body>
+</html>

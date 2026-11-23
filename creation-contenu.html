@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Création de contenu – Portfolio numérique</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">Portfolio numérique</a>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" aria-label="Basculer le mode sombre">Mode sombre</button>
+        <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      </div>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="cybersecurite.html">Cybersécurité</a></li>
+          <li><a href="prompt-engineering.html">Prompt engineering</a></li>
+          <li><a href="creation-contenu.html" aria-current="page">Création de contenu</a></li>
+          <li><a href="../developpement/python.html">Python</a></li>
+          <li><a href="../developpement/langage-c.html">Langage C</a></li>
+          <li><a href="../developpement/algorithmique.html">Algorithmique</a></li>
+          <li><a href="../systemes/systemes-exploitation.html">Systèmes</a></li>
+          <li><a href="../systemes/architecture-electronique.html">Architecture</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <h1>Digital Skills – Création de contenu</h1>
+    <p><strong>Sujet choisi :</strong> [ex. « La sécurité sur Internet »]. Toutes les productions ci-dessous traitent ce même sujet.</p>
+    <p><em>Utilisez uniquement des images, musiques et voix dont vous avez le droit (libres de droits ou générées). Aucun logiciel ou clé piraté.</em></p>
+
+    <h2>1. Avatar parlant</h2>
+    <p><strong>Description :</strong> vidéo de 30 à 60 secondes où un avatar présente le sujet à partir d'un script écrit et relu par moi.</p>
+    <p><strong>Outils :</strong> HeyGen (ou équivalent).</p>
+    <div class="placeholder">
+      <p><strong>À compléter :</strong> ajoutez votre vidéo.</p>
+      <pre><code>&lt;video controls width="100%" src="../medias/avatar.mp4"&gt;
+  Votre navigateur ne lit pas la vidéo.
+&lt;/video&gt;</code></pre>
+      <p>Si le fichier est trop lourd, hébergez-le sur une plateforme vidéo et intégrez le lien.</p>
+    </div>
+    <details>
+      <summary>Script de la vidéo</summary>
+      <p>[Collez ici votre script]</p>
+    </details>
+
+    <h2>2. Montage vidéo</h2>
+    <p><strong>Description :</strong> vidéo avec sous-titres, musique libre de droits et transitions sobres.</p>
+    <p><strong>Outils :</strong> CapCut.</p>
+    <div class="placeholder"><p><strong>À compléter :</strong> intégrez ou liez votre vidéo (<code>../medias/montage.mp4</code>) et citez la source de la musique.</p></div>
+
+    <h2>3. Résumé</h2>
+    <p><strong>Description :</strong> résumé structuré du sujet, généré puis corrigé par moi.</p>
+    <p><strong>Outils :</strong> NotebookLM.</p>
+    <div class="placeholder"><p><strong>À compléter :</strong> collez votre résumé corrigé ici et indiquez ce que vous avez modifié.</p></div>
+
+    <h2>4. Podcast</h2>
+    <p><strong>Description :</strong> épisode audio de quelques minutes généré à partir de mes sources.</p>
+    <p><strong>Outils :</strong> NotebookLM.</p>
+    <div class="placeholder">
+      <p><strong>À compléter :</strong></p>
+      <pre><code>&lt;audio controls src="../medias/podcast.mp3"&gt;&lt;/audio&gt;</code></pre>
+    </div>
+
+    <h2>5. Carte mentale</h2>
+    <p><strong>Description :</strong> concepts clés du sujet et liens entre eux.</p>
+    <p><strong>Outils :</strong> NotebookLM, Canva.</p>
+    <div class="placeholder">
+      <p><strong>À compléter :</strong></p>
+      <pre><code>&lt;img src="../medias/carte-mentale.png" alt="Carte mentale : concepts clés de la sécurité sur Internet"&gt;</code></pre>
+    </div>
+
+    <h2>6. PowerPoint interactif avec voix</h2>
+    <p><strong>Description :</strong> présentation avec boutons de navigation, menu cliquable (liens internes) et narration vocale sur chaque diapositive à partir d'un script (2 à 4 phrases par diapositive).</p>
+    <p><strong>Outils :</strong> PowerPoint (enregistrement de narration), Canva, Gamma.</p>
+    <div class="placeholder"><p><strong>À compléter :</strong> liez l'export (<code>../medias/presentation.pdf</code> ou vidéo) et décrivez votre menu de navigation.</p></div>
+
+    <h2>Tableau récapitulatif</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Production</th><th>Outils</th><th>Fichier</th></tr></thead>
+        <tbody>
+          <tr><td>Avatar parlant</td><td>HeyGen</td><td>[lien]</td></tr>
+          <tr><td>Montage vidéo</td><td>CapCut</td><td>[lien]</td></tr>
+          <tr><td>Résumé</td><td>NotebookLM</td><td>[lien]</td></tr>
+          <tr><td>Podcast</td><td>NotebookLM</td><td>[lien]</td></tr>
+          <tr><td>Carte mentale</td><td>NotebookLM, Canva</td><td>[lien]</td></tr>
+          <tr><td>PowerPoint interactif</td><td>PowerPoint, Canva, Gamma</td><td>[lien]</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <aside class="transparence" aria-labelledby="ia-contenu">
+      <h2 id="ia-contenu">Transparence IA</h2>
+      <ul>
+        <li><strong>Outils utilisés :</strong> [HeyGen, CapCut, NotebookLM, Canva, PowerPoint, Gamma…]</li>
+        <li><strong>Rôle de l'IA :</strong> [ex. voix et animation de l'avatar, génération du podcast et du résumé]</li>
+        <li><strong>Ce que j'ai fait moi-même :</strong> [écriture et relecture des scripts, montage, vérification, choix]</li>
+        <li><strong>Sources vérifiées :</strong> [liens, source de la musique et des images]</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 [Prénom Nom] – Portfolio numérique</p></footer>
+</body>
+</html>
