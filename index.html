@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio numérique – Accueil</title>
+  <meta name="description" content="Portfolio numérique d'un étudiant de 1ère année : Digital Skills, Développement, Systèmes et Web.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">Portfolio numérique</a>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" aria-label="Basculer le mode sombre">Mode sombre</button>
+        <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      </div>
+      <nav id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="index.html" aria-current="page">Accueil</a></li>
+          <li><a href="digital-skills/cybersecurite.html">Cybersécurité</a></li>
+          <li><a href="digital-skills/prompt-engineering.html">Prompt engineering</a></li>
+          <li><a href="digital-skills/creation-contenu.html">Création de contenu</a></li>
+          <li><a href="developpement/python.html">Python</a></li>
+          <li><a href="developpement/langage-c.html">Langage C</a></li>
+          <li><a href="developpement/algorithmique.html">Algorithmique</a></li>
+          <li><a href="systemes/systemes-exploitation.html">Systèmes</a></li>
+          <li><a href="systemes/architecture-electronique.html">Architecture</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" aria-labelledby="titre-accueil">
+      <div class="avatar" aria-hidden="true">PN</div>
+      <div>
+        <h1 id="titre-accueil">Bonjour, je suis Faker Chaima</h1>
+        <p>Étudiant(e) en 1ère année – <strong>Technologie d'informatique</strong>.</p>
+        <p>Ce site est mon <strong>portfolio numérique</strong> : il rassemble mes réalisations de tout le semestre et montre comment j'utilise les outils d'IA de façon responsable, critique et efficace.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="titre-modules">
+      <h2 id="titre-modules">Mes modules</h2>
+      <div class="filters" role="group" aria-label="Filtrer les modules">
+        <button type="button" data-filter="all" aria-pressed="true">Tous</button>
+        <button type="button" data-filter="digital" aria-pressed="false">Digital Skills</button>
+        <button type="button" data-filter="dev" aria-pressed="false">Développement</button>
+        <button type="button" data-filter="sys" aria-pressed="false">Systèmes</button>
+      </div>
+
+      <div class="cards" id="cards">
+        <a class="card" data-cat="digital" href="digital-skills/cybersecurite.html">
+          <span class="tag">Digital Skills</span>
+          <h3>Se protéger sur Internet</h3>
+          <p>Menaces, bonnes pratiques, quiz et checklist de sécurité.</p>
+        </a>
+        <a class="card" data-cat="digital" href="digital-skills/prompt-engineering.html">
+          <span class="tag">Digital Skills</span>
+          <h3>Prompt engineering</h3>
+          <p>3 cas pratiques avant/après et une bibliothèque de prompts.</p>
+        </a>
+        <a class="card" data-cat="digital" href="digital-skills/creation-contenu.html">
+          <span class="tag">Digital Skills</span>
+          <h3>Création de contenu</h3>
+          <p>Avatar, vidéo, résumé, podcast, carte mentale, PowerPoint interactif.</p>
+        </a>
+        <a class="card" data-cat="dev" href="developpement/python.html">
+          <span class="tag">Développement</span>
+          <h3>Python</h3>
+          <p>3 mini-projets expliqués et commentés.</p>
+        </a>
+        <a class="card" data-cat="dev" href="developpement/langage-c.html">
+          <span class="tag">Développement</span>
+          <h3>Langage C</h3>
+          <p>3 programmes et un comparatif Python / C.</p>
+        </a>
+        <a class="card" data-cat="dev" href="developpement/algorithmique.html">
+          <span class="tag">Développement</span>
+          <h3>Algorithmique</h3>
+          <p>Pseudo-code, exemples pas à pas et animation d'un tri.</p>
+        </a>
+        <a class="card" data-cat="sys" href="systemes/systemes-exploitation.html">
+          <span class="tag">Systèmes</span>
+          <h3>Systèmes d'exploitation</h3>
+          <p>Rôle de l'OS, comparatif Windows / Linux / macOS, commandes.</p>
+        </a>
+        <a class="card" data-cat="sys" href="systemes/architecture-electronique.html">
+          <span class="tag">Systèmes</span>
+          <h3>Architecture et électronique</h3>
+          <p>Architecture, binaire/hexadécimal, portes logiques.</p>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="titre-projet">
+      <h2 id="titre-projet">À propos du projet</h2>
+      <p>Chaque page de production se termine par une fiche <strong>« Transparence IA »</strong> : outils utilisés, rôle de l'IA, ce que j'ai fait moi-même et sources vérifiées.</p>
+      <p>Code source du site : voir le dépôt GitHub <code>portfolio-numerique</code>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 [Prénom Nom] – Portfolio numérique – Hébergé sur GitHub Pages</p>
+  </footer>
+</body>
+</html>
